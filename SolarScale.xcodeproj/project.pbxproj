@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C5976A68154F221700BBA54C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5976A65154F221700BBA54C /* AppDelegate.m */; };
-		C5976A69154F221700BBA54C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5976A67154F221700BBA54C /* ViewController.m */; };
-		C5976A6D154F222400BBA54C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5976A6C154F222400BBA54C /* ViewController.xib */; };
+		C5976A69154F221700BBA54C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5976A67154F221700BBA54C /* HomeViewController.m */; };
+		C5976A6D154F222400BBA54C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5976A6C154F222400BBA54C /* HomeViewController.xib */; };
+		C5976A6F154F228400BBA54C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5976A6E154F228400BBA54C /* MapKit.framework */; };
+		C5976A74154F28D200BBA54C /* sidebarBtnUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C5976A73154F28D200BBA54C /* sidebarBtnUnselected.png */; };
+		C5976A7A154F2D7000BBA54C /* sidebarBtnSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = C5976A79154F2D7000BBA54C /* sidebarBtnSelected.png */; };
 		C5E50C70154F0BC600B743DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E50C6F154F0BC600B743DC /* UIKit.framework */; };
 		C5E50C72154F0BC600B743DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E50C71154F0BC600B743DC /* Foundation.framework */; };
 		C5E50C74154F0BC600B743DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E50C73154F0BC600B743DC /* CoreGraphics.framework */; };
@@ -20,9 +23,12 @@
 /* Begin PBXFileReference section */
 		C5976A64154F221700BBA54C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5976A65154F221700BBA54C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C5976A66154F221700BBA54C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C5976A67154F221700BBA54C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C5976A6C154F222400BBA54C /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		C5976A66154F221700BBA54C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C5976A67154F221700BBA54C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C5976A6C154F222400BBA54C /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		C5976A6E154F228400BBA54C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C5976A73154F28D200BBA54C /* sidebarBtnUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebarBtnUnselected.png; sourceTree = "<group>"; };
+		C5976A79154F2D7000BBA54C /* sidebarBtnSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebarBtnSelected.png; sourceTree = "<group>"; };
 		C5E50C6B154F0BC600B743DC /* SolarScale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarScale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E50C6F154F0BC600B743DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C5E50C71154F0BC600B743DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -38,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5976A6F154F228400BBA54C /* MapKit.framework in Frameworks */,
 				C5E50C70154F0BC600B743DC /* UIKit.framework in Frameworks */,
 				C5E50C72154F0BC600B743DC /* Foundation.framework in Frameworks */,
 				C5E50C74154F0BC600B743DC /* CoreGraphics.framework in Frameworks */,
@@ -92,8 +99,8 @@
 			children = (
 				C5976A64154F221700BBA54C /* AppDelegate.h */,
 				C5976A65154F221700BBA54C /* AppDelegate.m */,
-				C5976A66154F221700BBA54C /* ViewController.h */,
-				C5976A67154F221700BBA54C /* ViewController.m */,
+				C5976A66154F221700BBA54C /* HomeViewController.h */,
+				C5976A67154F221700BBA54C /* HomeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -109,14 +116,24 @@
 		C5976A6B154F222400BBA54C /* XIB */ = {
 			isa = PBXGroup;
 			children = (
-				C5976A6C154F222400BBA54C /* ViewController.xib */,
+				C5976A6C154F222400BBA54C /* HomeViewController.xib */,
 			);
 			path = XIB;
+			sourceTree = "<group>";
+		};
+		C5976A70154F286700BBA54C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C5976A79154F2D7000BBA54C /* sidebarBtnSelected.png */,
+				C5976A73154F28D200BBA54C /* sidebarBtnUnselected.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		C5E50C60154F0BC500B743DC = {
 			isa = PBXGroup;
 			children = (
+				C5976A6E154F228400BBA54C /* MapKit.framework */,
 				C5E50C75154F0BC600B743DC /* SolarScale */,
 				C5E50C6E154F0BC600B743DC /* Frameworks */,
 				C5E50C6C154F0BC600B743DC /* Products */,
@@ -154,6 +171,7 @@
 		C5E50C76154F0BC600B743DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5976A70154F286700BBA54C /* Images */,
 				C5E50C77154F0BC600B743DC /* SolarScale-Info.plist */,
 				C5E50C78154F0BC600B743DC /* InfoPlist.strings */,
 				C5E50C7B154F0BC600B743DC /* main.m */,
@@ -214,7 +232,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E50C7A154F0BC600B743DC /* InfoPlist.strings in Resources */,
-				C5976A6D154F222400BBA54C /* ViewController.xib in Resources */,
+				C5976A6D154F222400BBA54C /* HomeViewController.xib in Resources */,
+				C5976A74154F28D200BBA54C /* sidebarBtnUnselected.png in Resources */,
+				C5976A7A154F2D7000BBA54C /* sidebarBtnSelected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +247,7 @@
 			files = (
 				C5E50C7C154F0BC600B743DC /* main.m in Sources */,
 				C5976A68154F221700BBA54C /* AppDelegate.m in Sources */,
-				C5976A69154F221700BBA54C /* ViewController.m in Sources */,
+				C5976A69154F221700BBA54C /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
