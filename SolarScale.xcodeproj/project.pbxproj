@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C529B0771550301D0064B6F5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C529B0761550301D0064B6F5 /* CoreLocation.framework */; };
 		C529B07A15504DC80064B6F5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C529B07915504DC80064B6F5 /* Constants.m */; };
+		C529B07D15505AE80064B6F5 /* ScaledDistancesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C529B07C15505AE80064B6F5 /* ScaledDistancesModel.m */; };
 		C5976A68154F221700BBA54C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5976A65154F221700BBA54C /* AppDelegate.m */; };
 		C5976A69154F221700BBA54C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5976A67154F221700BBA54C /* HomeViewController.m */; };
 		C5976A6D154F222400BBA54C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5976A6C154F222400BBA54C /* HomeViewController.xib */; };
@@ -26,6 +27,8 @@
 		C529B0761550301D0064B6F5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C529B07815504DC80064B6F5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C529B07915504DC80064B6F5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		C529B07B15505AE80064B6F5 /* ScaledDistancesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaledDistancesModel.h; sourceTree = "<group>"; };
+		C529B07C15505AE80064B6F5 /* ScaledDistancesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaledDistancesModel.m; sourceTree = "<group>"; };
 		C5976A64154F221700BBA54C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5976A65154F221700BBA54C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C5976A66154F221700BBA54C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 		C5976A61154F221700BBA54C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C529B07B15505AE80064B6F5 /* ScaledDistancesModel.h */,
+				C529B07C15505AE80064B6F5 /* ScaledDistancesModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				C5976A68154F221700BBA54C /* AppDelegate.m in Sources */,
 				C5976A69154F221700BBA54C /* HomeViewController.m in Sources */,
 				C529B07A15504DC80064B6F5 /* Constants.m in Sources */,
+				C529B07D15505AE80064B6F5 /* ScaledDistancesModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

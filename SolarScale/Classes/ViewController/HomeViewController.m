@@ -10,17 +10,44 @@
 
 @interface HomeViewController ()
 
+- (void)setScaleValues;
+
 @end
 
 @implementation HomeViewController
+@synthesize scaled = _scaled;
+
 @synthesize mapView = _mapView;
 @synthesize scalePane = _scalePane;
 @synthesize sidebarButon = _sidebarButton;
 @synthesize locationField = _locationField;
+@synthesize sunSizeField = _sunSizeField;
+
+@synthesize mercuryDiameterLabel = _mercuryDiameterLabel;
+@synthesize mercuryDistanceLabel = _mercuryDistanceLabel;
+@synthesize venusDiameterLabel = _venusDiameterLabel;
+@synthesize venusDistanceLabel = _venusDistanceLabel;
+@synthesize earthDiameterLabel = _earthDiameterLabel;
+@synthesize earthDistanceLabel = _earthDistanceLabel;
+@synthesize marsDiameterLabel = _marsDiameterLabel;
+@synthesize marsDistanceLabel = _marsDistanceLabel;
+@synthesize jupiterDiameterLabel = _jupiterDiameterLabel;
+@synthesize jupiterDistanceLabel = _jupiterDistanceLabel;
+@synthesize saturnDiameterLabel = _saturnDiameterLabel;
+@synthesize saturnDistanceLabel = _saturnDistanceLabel;
+@synthesize uranusDiameterLabel = _uranusDiameterLabel;
+@synthesize uranusDistanceLabel = _uranusDistanceLabel;
+@synthesize neptuneDiameterLabel = _neptuneDiameterLabel;
+@synthesize neptuneDistanceLabel = _neptuneDistanceLabel;
+@synthesize plutoDiameterLabel = _plutoDiameterLabel;
+@synthesize plutoDistanceLabel = _plutoDistanceLabel;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _scaled = [[ScaledDistancesModel alloc] init];
+    [self setScaleValues];
     
     [_sidebarButton setBackgroundImage:[UIImage imageNamed:@"sidebarBtnSelected"]
                               forState:UIControlStateHighlighted | UIControlStateSelected];
@@ -29,7 +56,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -96,11 +123,43 @@
     [_mapView addOverlay:circle];
 }
 
+- (IBAction)setScaleValuesForSunSize
+{
+    float sunSize = [_sunSizeField.text floatValue];
+        
+    [_scaled valuesForSunSize:sunSize];
+    
+    [self setScaleValues];
+}
+
+#pragma mark - Map View Delegate Methods
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
 {
     MKCircleView* circleView = [[MKCircleView alloc] initWithOverlay:overlay];
     circleView.strokeColor = [UIColor redColor];
     return circleView;
+}
+
+- (void)setScaleValues
+{
+    _mercuryDiameterLabel.text =  _scaled.mercuryDiameter;
+    _mercuryDistanceLabel.text =  _scaled.mercuryDistance;
+    _venusDiameterLabel.text =    _scaled.venusDiameter;
+    _venusDistanceLabel.text =    _scaled.venusDistance;
+    _earthDiameterLabel.text =    _scaled.earthDiameter;
+    _earthDistanceLabel.text =    _scaled.earthDistance;
+    _marsDiameterLabel.text =     _scaled.marsDiameter;
+    _marsDistanceLabel.text =     _scaled.marsDistance;
+    _jupiterDiameterLabel.text =  _scaled.jupiterDiameter;
+    _jupiterDistanceLabel.text =  _scaled.jupiterDistance;
+    _saturnDiameterLabel.text =   _scaled.saturnDiameter;
+    _saturnDistanceLabel.text =   _scaled.saturnDistance;
+    _uranusDiameterLabel.text =   _scaled.uranusDiameter;
+    _uranusDistanceLabel.text =   _scaled.uranusDistance;
+    _neptuneDiameterLabel.text =  _scaled.neptuneDiameter;
+    _neptuneDistanceLabel.text =  _scaled.neptuneDistance;
+    _plutoDiameterLabel.text =    _scaled.plutoDiameter;
+    _plutoDistanceLabel.text =    _scaled.plutoDistance;
 }
 
 @end
