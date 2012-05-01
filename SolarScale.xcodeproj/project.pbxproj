@@ -133,7 +133,6 @@
 		C5E50C60154F0BC500B743DC = {
 			isa = PBXGroup;
 			children = (
-				C5976A6E154F228400BBA54C /* MapKit.framework */,
 				C5E50C75154F0BC600B743DC /* SolarScale */,
 				C5E50C6E154F0BC600B743DC /* Frameworks */,
 				C5E50C6C154F0BC600B743DC /* Products */,
@@ -151,6 +150,7 @@
 		C5E50C6E154F0BC600B743DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5976A6E154F228400BBA54C /* MapKit.framework */,
 				C5E50C6F154F0BC600B743DC /* UIKit.framework */,
 				C5E50C71154F0BC600B743DC /* Foundation.framework */,
 				C5E50C73154F0BC600B743DC /* CoreGraphics.framework */,
