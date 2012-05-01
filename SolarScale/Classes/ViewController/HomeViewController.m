@@ -13,8 +13,10 @@
 @end
 
 @implementation HomeViewController
+@synthesize mapView = _mapView;
 @synthesize scalePane = _scalePane;
 @synthesize sidebarButon = _sidebarButton;
+@synthesize locationField = _locationField;
 
 - (void)viewDidLoad
 {
@@ -67,7 +69,38 @@
 
 - (IBAction)findLocationFromLocationField:(id)sender
 {
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:[_locationField text] completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error) {
+            NSLog(@"Error while geocoding");
+        } else {
+            
+            MKPlacemark *placemark = [placemarks objectAtIndex:0];
+            
+            MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
+            pointAnnotation.coordinate = placemark.location.coordinate;
+            [_mapView addAnnotation:pointAnnotation];
+            
+            MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(placemark.region.center, placemark.region.radius, placemark.region.radius);
+            [_mapView setRegion:region animated:YES];
+        }
+    }];
     
+}
+
+- (IBAction)drawCircleForSunSize:(id)sender
+{
+    MKPointAnnotation *centerPoint = [_mapView.annotations objectAtIndex:0];
+    
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:9000];
+    [_mapView addOverlay:circle];
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
+{
+    MKCircleView* circleView = [[MKCircleView alloc] initWithOverlay:overlay];
+    circleView.strokeColor = [UIColor redColor];
+    return circleView;
 }
 
 @end
