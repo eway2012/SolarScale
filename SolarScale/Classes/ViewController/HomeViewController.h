@@ -14,7 +14,8 @@
 @interface HomeViewController : UIViewController <MKMapViewDelegate> {
     ScaledDistancesModel *_scaled;
     UIView *_scalePane;
-    UITextField *_sunSizeField;
+    UISlider *_sunSizeSlider;
+    UILabel *_sunSizeLabel;
 }
 
 @property (nonatomic, strong) ScaledDistancesModel *scaled;
@@ -23,7 +24,8 @@
 @property (nonatomic, strong) IBOutlet UIView *scalePane;
 @property (nonatomic, weak) IBOutlet UIButton *sidebarButon;
 @property (nonatomic, weak) IBOutlet UITextField *locationField;
-@property (nonatomic, strong) IBOutlet UITextField *sunSizeField;
+@property (nonatomic, strong) IBOutlet UISlider *sunSizeSlider;
+@property (nonatomic, strong) IBOutlet UILabel *sunSizeLabel;
 
 @property (nonatomic, weak) IBOutlet UILabel *mercuryDiameterLabel;
 @property (nonatomic, weak) IBOutlet UILabel *mercuryDistanceLabel;
@@ -46,7 +48,6 @@
 
 - (IBAction)openButtonTapped:(UIButton *)sender;
 - (IBAction)findLocationFromLocationField:(id)sender;
-- (IBAction)drawCircleForSunSize:(id)sender;
 - (IBAction)setScaleValuesForSunSize;
 
 @end

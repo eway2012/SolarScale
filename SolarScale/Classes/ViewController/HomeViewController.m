@@ -11,6 +11,7 @@
 @interface HomeViewController ()
 
 - (void)setScaleValues;
+- (void)drawCirclesForSunSize;
 
 @end
 
@@ -21,7 +22,8 @@
 @synthesize scalePane = _scalePane;
 @synthesize sidebarButon = _sidebarButton;
 @synthesize locationField = _locationField;
-@synthesize sunSizeField = _sunSizeField;
+@synthesize sunSizeLabel = _sunSizeLabel;
+@synthesize sunSizeSlider = _sunSizeSlider;
 
 @synthesize mercuryDiameterLabel = _mercuryDiameterLabel;
 @synthesize mercuryDistanceLabel = _mercuryDistanceLabel;
@@ -45,9 +47,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     _scaled = [[ScaledDistancesModel alloc] init];
     [self setScaleValues];
+    
+    _sunSizeSlider.enabled = NO;
     
     [_sidebarButton setBackgroundImage:[UIImage imageNamed:@"sidebarBtnSelected"]
                               forState:UIControlStateHighlighted | UIControlStateSelected];
@@ -101,7 +105,11 @@
         if (error) {
             NSLog(@"Error while geocoding");
         } else {
+            _sunSizeSlider.enabled = YES;
             
+            [_mapView removeAnnotations:_mapView.annotations];
+            [_mapView removeOverlays:_mapView.overlays];
+                        
             MKPlacemark *placemark = [placemarks objectAtIndex:0];
             
             MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
@@ -115,21 +123,56 @@
     
 }
 
-- (IBAction)drawCircleForSunSize:(id)sender
+- (void)drawCirclesForSunSize
 {
-    MKPointAnnotation *centerPoint = [_mapView.annotations objectAtIndex:0];
+    [_mapView removeOverlays:_mapView.overlays];
     
-    MKCircle *circle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:9000];
-    [_mapView addOverlay:circle];
+    MKPointAnnotation *centerPoint = [_mapView.annotations objectAtIndex:0];
+        
+    MKCircle *mercCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.mercuryDistanceM];
+    [_mapView addOverlay:mercCircle];
+    
+    MKCircle *venuCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.venusDistanceM];
+    [_mapView addOverlay:venuCircle];
+    
+    MKCircle *eartCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.earthDistanceM];
+    [_mapView addOverlay:eartCircle];
+    
+    MKCircle *marsCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.marsDistanceM];
+    [_mapView addOverlay:marsCircle];
+    
+    MKCircle *jupiCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.jupiterDistanceM];
+    [_mapView addOverlay:jupiCircle];
+    
+    MKCircle *satuCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.saturnDistanceM];
+    [_mapView addOverlay:satuCircle];
+    
+    MKCircle *uranCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.uranusDistanceM];
+    [_mapView addOverlay:uranCircle];
+    
+    MKCircle *neptCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.neptuneDistanceM];
+    [_mapView addOverlay:neptCircle];
+    
+    MKCircle *plutCircle = [MKCircle circleWithCenterCoordinate:centerPoint.coordinate radius:_scaled.plutoDistanceM];
+    [_mapView addOverlay:plutCircle];
+    
+    CLLocationDistance latDistance = _scaled.plutoDistanceM;
+    CLLocationDistance longDistance = (3 * latDistance) / 4;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(centerPoint.coordinate, latDistance, longDistance);
+    [_mapView setRegion:region animated:YES];
 }
 
 - (IBAction)setScaleValuesForSunSize
 {
-    float sunSize = [_sunSizeField.text floatValue];
+    float sunSize = [_sunSizeSlider value];
+    
+    _sunSizeLabel.text = [NSString stringWithFormat:@"%.1fm", sunSize];
         
     [_scaled valuesForSunSize:sunSize];
     
     [self setScaleValues];
+    [self drawCirclesForSunSize];
 }
 
 #pragma mark - Map View Delegate Methods
